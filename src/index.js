@@ -3,6 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import pool from './config/db.js';
 
+import userRoutes from './routes/userRoutes.js';
+import errorHandler from './middlewares/errorhandler.js';
+
 
 dotenv.config();
 
@@ -14,10 +17,10 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-
+app.use('/api', userRoutes);
 
 // Error handling
-
+app.use(errorHandler);
 
 // test db
 app.get('/', async (req, res) => {
