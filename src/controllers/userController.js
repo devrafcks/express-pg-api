@@ -1,3 +1,11 @@
+import {
+    createUserService,
+    getAllUsersService,
+    getUserByIdService,
+    updateUserService,
+    deleteUserService
+} from '../models/userModel.js';
+
 const handleResponse = (res, status, message, data = null) => {
     res.status(status).json({
         status,
