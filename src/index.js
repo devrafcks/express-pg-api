@@ -5,7 +5,7 @@ import pool from './config/db.js';
 
 import userRoutes from './routes/userRoutes.js';
 import errorHandler from './middlewares/errorhandler.js';
-
+import createUserTable from './data/createUserTable.js';
 
 dotenv.config();
 
@@ -21,6 +21,9 @@ app.use('/api', userRoutes);
 
 // Error handling
 app.use(errorHandler);
+
+// create Table users
+createUserTable()
 
 // test db
 app.get('/', async (req, res) => {
